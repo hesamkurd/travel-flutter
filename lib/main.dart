@@ -29,6 +29,7 @@ class MainPage extends StatefulWidget {
 
 class _MainPageState extends State<MainPage> {
   int _selectedIndex = 0;
+  double imageSized = AppLayout.getHeight(70);
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
@@ -42,6 +43,7 @@ class _MainPageState extends State<MainPage> {
               color: Colors.red,
               child: Stack(
                 children: [
+                  // Background Image
                   Container(
                     width: double.infinity,
                     height: size.height / 2.1,
@@ -98,6 +100,31 @@ class _MainPageState extends State<MainPage> {
                         ],
                       ),
                     ),
+                  ),
+
+                  ListView.builder(
+                    itemCount: travelList.length,
+                    itemBuilder: (context, index) {
+                      return Column(
+                        children: [
+                          ClipRRect(
+                            borderRadius: BorderRadius.circular(10),
+                            child: InkWell(
+                              onTap: () {},
+                              child: AnimatedContainer(
+                                width: imageSized,
+                                height: imageSized,
+                                duration: const Duration(milliseconds: 500),
+                                child: Image(
+                                  image: AssetImage(travelList[index].img),
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      );
+                    },
                   ),
                 ],
               ),
