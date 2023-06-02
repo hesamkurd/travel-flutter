@@ -4,7 +4,7 @@ class TravelModel {
   String price;
   String temp;
   String distance;
-  String dsecription;
+  String description;
   String img;
   String rating;
 
@@ -14,7 +14,7 @@ class TravelModel {
     required this.price,
     required this.temp,
     required this.distance,
-    required this.dsecription,
+    required this.description,
     required this.img,
     required this.rating,
   });
@@ -27,7 +27,7 @@ List<TravelModel> travelList = [
       price: "7000",
       temp: "27",
       distance: "215",
-      dsecription: "dsecription",
+      description: "dsecription",
       img: "assets/images/1.webp",
       rating: "4.9"),
   TravelModel(
@@ -36,7 +36,7 @@ List<TravelModel> travelList = [
       price: "6500",
       temp: "26",
       distance: "125",
-      dsecription: "dsecription",
+      description: "dsecription",
       img: "assets/images/2.jpg",
       rating: "4.5"),
   TravelModel(
@@ -45,7 +45,7 @@ List<TravelModel> travelList = [
       price: "6400",
       temp: "25",
       distance: "143",
-      dsecription: "dsecription",
+      description: "dsecription",
       img: "assets/images/3.jpg",
       rating: "4.6"),
   TravelModel(
@@ -54,7 +54,7 @@ List<TravelModel> travelList = [
       price: "7200",
       temp: "27",
       distance: "234",
-      dsecription: "dsecription",
+      description: "dsecription",
       img: "assets/images/4.jpg",
       rating: "4.8"),
 ];

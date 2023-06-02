@@ -30,6 +30,7 @@ class MainPage extends StatefulWidget {
 class _MainPageState extends State<MainPage> {
   int _selectedIndex = 0;
   double imageSized = AppLayout.getHeight(70);
+
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
@@ -102,29 +103,19 @@ class _MainPageState extends State<MainPage> {
                     ),
                   ),
 
-                  ListView.builder(
-                    itemCount: travelList.length,
-                    itemBuilder: (context, index) {
-                      return Column(
-                        children: [
-                          ClipRRect(
-                            borderRadius: BorderRadius.circular(10),
-                            child: InkWell(
-                              onTap: () {},
-                              child: AnimatedContainer(
-                                width: imageSized,
-                                height: imageSized,
-                                duration: const Duration(milliseconds: 500),
-                                child: Image(
-                                  image: AssetImage(travelList[index].img),
-                                  fit: BoxFit.cover,
-                                ),
-                              ),
-                            ),
-                          ),
-                        ],
-                      );
-                    },
+                  Positioned(
+                    right: 0,
+                    top: 80,
+                    child: SizedBox(
+                      width: AppLayout.getWidth(100),
+                      height: double.maxFinite,
+                      child: ListView.builder(
+                        itemCount: travelList.length,
+                        itemBuilder: (context, index) {
+                          return imageItem(index);
+                        },
+                      ),
+                    ),
                   ),
                 ],
               ),
@@ -138,6 +129,45 @@ class _MainPageState extends State<MainPage> {
           ],
         ),
       ),
+    );
+  }
+
+  Widget imageItem(int index) {
+    return Column(
+      children: [
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: InkWell(
+            onTap: () {
+              setState(() {
+                _selectedIndex = index;
+              });
+            },
+            child: AnimatedContainer(
+              decoration: BoxDecoration(
+                border: Border.all(
+                  color: _selectedIndex == index
+                      ? Colors.blue.shade600
+                      : Colors.white,
+                  width: 2,
+                ),
+                borderRadius: BorderRadius.circular(10),
+                image: DecorationImage(
+                  fit: BoxFit.fill,
+                  image: AssetImage(travelList[index].img),
+                ),
+              ),
+              width: _selectedIndex == index
+                  ? imageSized + AppLayout.getWidth(15)
+                  : imageSized,
+              height: _selectedIndex == index
+                  ? imageSized + AppLayout.getHeight(15)
+                  : imageSized,
+              duration: const Duration(milliseconds: 500),
+            ),
+          ),
+        ),
+      ],
     );
   }
 }
