@@ -102,7 +102,7 @@ class _MainPageState extends State<MainPage> {
                       ),
                     ),
                   ),
-
+                  // List Image
                   Positioned(
                     right: 0,
                     top: 80,
@@ -117,6 +117,41 @@ class _MainPageState extends State<MainPage> {
                       ),
                     ),
                   ),
+                  Positioned(
+                    bottom: AppLayout.getHeight(80),
+                    left: AppLayout.getWidth(40),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          travelList[_selectedIndex].name,
+                          style: const TextStyle(
+                            color: Colors.white,
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        SizedBox(
+                          height: AppLayout.getHeight(8),
+                        ),
+                        Row(
+                          children: [
+                            const Icon(
+                              CupertinoIcons.placemark_fill,
+                              color: Colors.white,
+                            ),
+                            Text(
+                              travelList[_selectedIndex].location,
+                              style: const TextStyle(
+                                color: Colors.white,
+                                fontSize: 16,
+                              ),
+                            ),
+                          ],
+                        )
+                      ],
+                    ),
+                  )
                 ],
               ),
             ),
