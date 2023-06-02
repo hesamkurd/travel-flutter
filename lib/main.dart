@@ -41,7 +41,7 @@ class _MainPageState extends State<MainPage> {
             Container(
               width: double.infinity,
               height: size.height / 1.8,
-              color: Colors.red,
+              color: Colors.white,
               child: Stack(
                 children: [
                   // Background Image
@@ -158,7 +158,85 @@ class _MainPageState extends State<MainPage> {
             Expanded(
               child: Container(
                 width: double.infinity,
-                color: Colors.blue,
+                color: Colors.white,
+                child: Column(
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Card(
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(15),
+                            side:
+                                const BorderSide(color: Colors.grey, width: 1),
+                          ),
+                          child: SizedBox(
+                            width: 100,
+                            height: 100,
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.spaceAround,
+                              children: [
+                                const Text("Temp"),
+                                Text(
+                                  '${travelList[_selectedIndex].temp} \u00b0 C',
+                                  style: TextStyle(
+                                      fontSize: 20,
+                                      color: Colors.blue.shade600),
+                                )
+                              ],
+                            ),
+                          ),
+                        ),
+                        Card(
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(15),
+                            side:
+                                const BorderSide(color: Colors.grey, width: 1),
+                          ),
+                          child: SizedBox(
+                            width: 100,
+                            height: 100,
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.spaceAround,
+                              children: [
+                                const Text("Distance"),
+                                Text(
+                                  '${travelList[_selectedIndex].distance} Km',
+                                  style: TextStyle(
+                                      fontSize: 20,
+                                      color: Colors.blue.shade600),
+                                )
+                              ],
+                            ),
+                          ),
+                        ),
+                        Card(
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(15),
+                            side:
+                                const BorderSide(color: Colors.grey, width: 1),
+                          ),
+                          child: SizedBox(
+                            width: 100,
+                            height: 100,
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.spaceAround,
+                              children: [
+                                const Text("Rating"),
+                                Text(
+                                  travelList[_selectedIndex].rating,
+                                  style: TextStyle(
+                                      fontSize: 20,
+                                      color: Colors.blue.shade600),
+                                )
+                              ],
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
               ),
             ),
           ],
